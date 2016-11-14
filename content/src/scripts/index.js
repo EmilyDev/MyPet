@@ -13,9 +13,7 @@ anchor.id = 'rcr-anchor';
 document.body.insertBefore(anchor, document.body.childNodes[0]);
 
 render(
-  <Provider store={proxyStore}>
+<Provider store={proxyStore}>
     <App/>
-  </Provider>
-  , document.getElementById('rcr-anchor'));
-
-
+    </Provider>
+    , document.getElementById('rcr-anchor'));

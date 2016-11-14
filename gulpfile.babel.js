@@ -42,7 +42,7 @@ gulp.task('content-js', ['clean'], (cb) => {
 gulp.task('popup-html', ['clean'], () => {
   return gulp.src('popup/src/index.html')
     .pipe(plugins.rename('popup.html'))
-    .pipe(gulp.dest('./build'))
+    .pipe(gulp.dest('./build'));
 });
 
 gulp.task('copy-manifest', ['clean'], () => {
@@ -59,7 +59,7 @@ gulp.task('clean', (cb) => {
   rimraf('./build', cb);
 });
 
-gulp.task('build', ['copy-manifest', 'popup-js', 'popup-html', 'event-js', 'content-js', 'copy-stylesheet']);
+gulp.task('build', ['copy-manifest', 'copy-stylesheet', 'popup-js', 'popup-html', 'event-js', 'content-js']);
 
 gulp.task('watch', ['default'], () => {
   gulp.watch('popup/**/*', ['build']);

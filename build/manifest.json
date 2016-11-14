@@ -15,8 +15,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*/*"],
-      "html": ["content.html"],
+      "matches": ["https://learn.fullstackacademy.com/*"],
+      "exclude_matches" : ["http://learn.fullstackacademy.com/login"],
+      "css": ["stylesheet.css"],
       "js": ["content.js"]
     }
   ],
