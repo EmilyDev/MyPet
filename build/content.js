@@ -23215,6 +23215,9 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var normal = chrome.extension.getURL('/rilakumma.png');
+	var laydown = chrome.extension.getURL('/laydown.png');
+
 	var App = function (_Component) {
 	    _inherits(App, _Component);
 
@@ -23247,7 +23250,7 @@
 	            var $circle = (0, _jquery2.default)('.peach');
 
 	            function moveCircle(e) {
-	                _gsap.TweenLite.to($circle, 0.5, {
+	                _gsap.TweenLite.to($circle, 0.7, {
 	                    css: {
 	                        left: e.pageX,
 	                        top: e.pageY
@@ -23275,12 +23278,21 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
+
 	            return _react2.default.createElement(
 	                'div',
-	                { className: 'handle' },
-	                _react2.default.createElement('div', { className: 'circle', onClick: this.onClickHandler }),
-	                'Count: ',
-	                this.props.count
+	                { className: 'playground' },
+	                _react2.default.createElement(
+	                    _reactDraggable2.default,
+	                    null,
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'handle' },
+	                        'Count: ',
+	                        this.props.count
+	                    )
+	                ),
+	                _react2.default.createElement('img', { src: this.state.move ? normal : laydown, className: 'peach', onClick: this.onClickHandler })
 	            );
 	        }
 	    }]);

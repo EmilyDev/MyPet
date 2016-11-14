@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import Draggable from 'react-draggable'
 import {TweenLite} from 'gsap';
 import $ from "jquery";
+const normal = chrome.extension.getURL('/rilakumma.png')
+const laydown = chrome.extension.getURL('/laydown.png')
 
 class App extends Component {
   constructor(props) {
@@ -12,8 +14,6 @@ class App extends Component {
       };
     this.onClickHandler = this.onClickHandler.bind(this);
   }
-  
-  
 
   componentDidMount() {
     document.addEventListener('click', () => {
@@ -27,7 +27,7 @@ class App extends Component {
    let $circle = $('.peach');
 
      function moveCircle(e) {
-         TweenLite.to($circle, 0.5, {
+         TweenLite.to($circle, 0.7, {
              css: {
                  left: e.pageX,
                  top: e.pageY
@@ -53,14 +53,21 @@ class App extends Component {
     }
  }
 
-  render() {
-    return (
 
+
+  render(){
+
+    return (
+<div className="playground">
+    <Draggable>
         <div className="handle" >
-            <div className="circle" onClick={this.onClickHandler} />
         Count: {this.props.count}
         </div>
+     </Draggable>
 
+    <img src={this.state.move ? normal : laydown} className="peach" onClick={this.onClickHandler}/>
+
+</div>
     );
   }
 }

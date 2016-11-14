@@ -55,11 +55,26 @@ gulp.task('copy-stylesheet', ['clean'], () => {
       .pipe(gulp.dest('./build'));
 });
 
+gulp.task('copy-rilakumma', ['clean'], () => {
+  return gulp.src('rilakumma.png')
+      .pipe(gulp.dest('./build'));
+});
+
+gulp.task('copy-laydown', ['clean'], () => {
+  return gulp.src('laydown.png')
+      .pipe(gulp.dest('./build'));
+});
+
+gulp.task('copy-icon', ['clean'], () => {
+  return gulp.src('icon.png')
+      .pipe(gulp.dest('./build'));
+});
+
 gulp.task('clean', (cb) => {
   rimraf('./build', cb);
 });
 
-gulp.task('build', ['copy-manifest', 'copy-stylesheet', 'popup-js', 'popup-html', 'event-js', 'content-js']);
+gulp.task('build', ['copy-manifest', 'copy-stylesheet', 'copy-icon','popup-js', 'popup-html', 'event-js', 'content-js', 'copy-rilakumma', 'copy-laydown']);
 
 gulp.task('watch', ['default'], () => {
   gulp.watch('popup/**/*', ['build']);
