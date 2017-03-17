@@ -1,9 +1,9 @@
 # MyPet
-##Chrome Extension Browser Pet for Fullstack students 
-To create your Chrome Extension files
+## Chrome Extension Browser Pet for Fullstack students 
+Steps create your Chrome Extension files for your pet.
 
-*Clone or download this repo.
-*Navigate to an example's root folder, then run
+* Clone or download this repo.
+* Navigate to an example's root folder, then run
 
 ```
 npm install 
